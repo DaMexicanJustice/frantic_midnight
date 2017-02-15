@@ -1,4 +1,3 @@
-# frantic_midnight
 ## Plan A
 Src: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/vgsales.csv`
 
