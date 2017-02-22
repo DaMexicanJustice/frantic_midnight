@@ -1,7 +1,7 @@
 ## Plan A
 Target: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/vgsales.csv`
 
-Source: ![Video game sales](https://www.kaggle.com/gregorut/videogamesales)
+Source: [Video game sales](https://www.kaggle.com/gregorut/videogamesales)
 
 This contains data about video game sales.
 We will investigate:
