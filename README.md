@@ -1,5 +1,5 @@
 ## Plan A
-Target: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/vgsales.csv`
+Target: [vgsales.csv](https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/vgsales.csv)
 
 Source: [Video game sales](https://www.kaggle.com/gregorut/videogamesales)
 
