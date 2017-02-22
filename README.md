@@ -1,5 +1,6 @@
 ## Plan A
 Target: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/vgsales.csv`
+
 Source: `https://www.kaggle.com/gregorut/videogamesales`
 
 This contains data about video game sales.
@@ -11,6 +12,7 @@ We will investigate:
 
 ## Plan B
 Target: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/database.csv`
+
 Source: `https://www.kaggle.com/nsidcorg/glacier-inventory`
 
 This contains data about ice glaciers.
