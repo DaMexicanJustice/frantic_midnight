@@ -11,9 +11,9 @@ We will investigate:
 * Most popular publisher
 
 ## Plan B
-Target: `https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/database.csv`
+Target: [database.csv](https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/database.csv)
 
-Source: `https://www.kaggle.com/nsidcorg/glacier-inventory`
+Source: [Glacier Inventory](https://www.kaggle.com/nsidcorg/glacier-inventory)
 
 This contains data about ice glaciers.
 We will investigate:
