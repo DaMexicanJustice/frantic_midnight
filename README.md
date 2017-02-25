@@ -18,6 +18,7 @@ If we go to the source of the dataset we can see what kind of headers it has and
 - 10th header: is the sales in other countries with that game.
 - 11th header: is the global sales, where it basically sums up the sales from USA, EU, JP and Other_sales.
 
+
 What we will investigate are:
 
 * Top 3 most sold genres in USA vs Europe
