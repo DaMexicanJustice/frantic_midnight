@@ -21,9 +21,9 @@ If we go to the source of the dataset we can see what kind of headers it has and
 
 What we will investigate are:
 
-* Top 3 most sold genres in USA vs Europe
-* Bottom 3 most unpopular genres in USA vs Europe
-* Most popular publisher
+* The top 3 most sold genres in USA vs Europe
+* The bottom 3 most unpopular genres in USA vs Europe
+* The most popular publisher
 
 ## Plan B
 Target: [database.csv](https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/database.csv)
