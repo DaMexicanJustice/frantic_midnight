@@ -18,9 +18,9 @@ If we go to the source of the dataset we can see what kind of headers it has and
 - 4th header: is the year the video game was made.
 - 5th header: is the genre of the video game.
 - 6th header: is the publisher of the video game, nintendo, sony etc.
-- 7th header: is the sales in North America with that video game.
-- 8th header: is the sales in Europe with that video game.
-- 9th header: is the sales in Japan with that video game.
+- 7th header: is the number of sales for the game in North America
+- 8th header: is the number of sales for the game in Europe
+- 9th header: is the number of sales for the game in Japan
 - 10th header: is the sales in other countries with that game.
 - 11th header: is the global sales, where it basically sums up the sales from USA, EU, JP and Other_sales.
 
