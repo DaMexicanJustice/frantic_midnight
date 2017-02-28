@@ -19,11 +19,33 @@ If we go to the source of the dataset we can see what kind of headers it has and
 - 11th header: is the global sales, where it basically sums up the sales from USA, EU, JP and Other_sales.
 
 
-What we will investigate are:
+Let's choose which problem we will investigate:
 
-* The top 3 most sold genres in USA vs Europe
-* The bottom 3 most unpopular genres in USA vs Europe
-* The most popular publisher
+* Which platform is the most popular in the regions NA, EU and Japan?
+* How big a share of the global sales does the US sales cover?
+* Which game genre is the most popular in 2012?
+* Which publisher has the most titles in top 100?
+* Which year had the most titles released?
+* Which region has the most sales per person?
+* Etc? Suggestions?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Plan B
 Target: [database.csv](https://raw.githubusercontent.com/DaMexicanJustice/frantic_midnight/master/data%20sets/database.csv)
