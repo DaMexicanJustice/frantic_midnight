@@ -3,7 +3,13 @@ Target: [vgsales.csv](https://raw.githubusercontent.com/DaMexicanJustice/frantic
 
 Source: [Video game sales](https://www.kaggle.com/gregorut/videogamesales)
 
-the dataset we have chosen, is about overall video game sales.<br />
+
+### What is the theme?
+* Videogames
+* Economics
+* Trends
+
+### What does the data set describe?
 If we go to the source of the dataset we can see what kind of headers it has and the data it holds.
 
 - 1st header: is the rank on the video game, how popular it is.
