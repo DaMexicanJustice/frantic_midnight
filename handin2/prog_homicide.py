@@ -22,12 +22,40 @@ def ex2_most_popular_weapons(data):
     pass
 
 # Which weapon is most used by women?
-def ex3_women_weapon(data):
-    pass
+def ex3_women_weapon():
+
+    homicides = pd.read_csv("database.csv", dtype={"Perpetrator Age": object})
+
+    dd = homicides.as_matrix()
+
+# Weapon = 20
+# Perpetrator sex = 15
+
+    weapons, count = np.unique(dd[(dd[:,15] == "Female")][:,20], return_counts=True)
+    return weapons[np.argmax(count)]
+    
+print("Most used weapon by females: " + ex3_women_weapon())
 
 # What is the age of the youngest victim and the oldest victim?
-def ex4_youngest_oldest_victim(data):
-    pass
+def ex4_youngest_victim():
+    homicides = pd.read_csv("database.csv", dtype={"Perpetrator Age": object})
+
+    dd = homicides.as_matrix()
+    
+    young_victim = np.unique(dd[:,12])
+    return np.argmin(young_victim)
+
+def ex4_oldest_victim():
+    homicides = pd.read_csv("database.csv", dtype={"Perpetrator Age": object})
+
+    dd = homicides.as_matrix()
+    
+    old_victim = np.unique(dd[:,12])
+    return np.argmax(old_victim)
+
+
+print("Youngest victim: ", ex4_youngest_victim(), "years old")
+print("Oldest victim: ", ex4_oldest_victim(), "years old")
 
 # Average age of victims?
 def ex5_average_victim_age(data):
