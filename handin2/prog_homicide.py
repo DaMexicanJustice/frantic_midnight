@@ -59,11 +59,42 @@ print("Oldest victim: ", ex4_oldest_victim(), "years old")
 
 # Average age of victims?
 def ex5_average_victim_age(data):
-    pass
+    age_sum = 0
+    counting = 0
+    
+    for row in data.iterrows():
+        if(row[1][12] == "Victim Age"):
+                pass # ignore headers
+        else:
+            age_sum += int(row[1][12])
+            counting += 1
+    average_victim_age = float(age_sum / counting)
+    
+    print("The average victim age is " + str(average_victim_age) + ".")
 
 # Male to female ratio of perpetrators?
 def ex6_gender_ratio_attackers(data):
-    pass
+    
+    male_count = 0
+    female_count = 0
+    total_count = 0
+    
+    for row in data.iterrows():
+        if (row[1][15] == "Male"):
+            male_count += 1
+            total_count += 1
+        elif(row[1][15] == "Female"):
+            female_count += 1
+            total_count += 1
+        else:
+            pass
+     
+    male_ratio = (male_count / total_count) * 100      
+    female_ratio = (female_count / total_count) * 100
+            
+    print("Males made up: " + str(male_ratio) + "%, " + 
+          "females made up: " + str(female_ratio) + "%.")
+    
 
 # Top 10 states with most homicides? display it with bars (barchart) or similar
 def ex7_states_most_homicides(data, limiter):
