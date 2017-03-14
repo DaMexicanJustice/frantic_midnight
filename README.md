@@ -64,3 +64,11 @@ We will investigate:
 * Place of fastest decay
 * Place of slowest decay
 * What country has the most glaciers
+
+
+
+
+
+
+# Homicides
+You can find the documentation and our code here: [Homicides](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/handin2/Frantic_Midnight_Homicide.ipynb)
