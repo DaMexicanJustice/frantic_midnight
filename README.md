@@ -73,3 +73,9 @@ We will investigate:
 
 # Homicides
 You can find the documentation and our code here: [Homicides](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/handin2/Frantic_Midnight_Homicide.ipynb)
+
+
+
+
+# HDI and Satellites
+you can find the documentation, installationsguide and our code here: [HDI](https://github.com/DaMexicanJustice/frantic_midnight/tree/master/Hand-in%203)
