@@ -1,6 +1,6 @@
-#Installation guide:
+# Installation guide:
 
-##Setup
+## Setup
 
 We need to setup a Python environment. There are many ways, but to follow along with our example we recommend a virtual machine running ubuntu. 
 The following is a step by step guide to setting up a virtual machine Python enviroment and getting everything ready.
