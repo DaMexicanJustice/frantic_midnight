@@ -47,4 +47,4 @@ Accessible by opening any browser outside your Virtual Machine and connecting to
 Notice that opening a Jupyter server will reserve the ssh connection, which then will be needed to be closed and opened everytime you wish to navigate the terminal. Done by pressing:
 ctrl + c and then Y and enter. Alternatively run a second terminal and vagrant ssh from there to have both. 
 
-You are now ready to implement the code located in the [Jupyter](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/Handin-4/frantic_midnight_presentation_aviation.ipynb) notebook. 
+You are now ready to implement the code located in the [Jupyter notebook](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/Handin-4/frantic_midnight_presentation_aviation.ipynb). 
