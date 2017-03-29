@@ -175,10 +175,36 @@ def ex3(df):
     print("Top 3 City parts by population in 2000: " + str(lookup_citypart(get_n_largest(winner_2000, 3))))
     print("Top 3 City parts by population in 2015: " + str(lookup_citypart(get_n_largest(winner_2015, 3))))
     
+def just_plot(t5_k, t5_v):
+    sizes = [215, 130, 245, 210]
+    # colors = ['gold', 'yellowgreen', 'lightcoral', 'white', 'red']
+    #explode = (0.1, 0.1, 0.1, 0.1, 0.1)  # explode 1st slice
+    plt.pie(t5_v,labels=t5_k,autopct='%1.1f%%', shadow=True, startangle=80)
+ 
+    plt.axis('equal')
+    plt.show()
+
+def ex4(df):
+    marriage_2000 = defaultdict(lambda: 0)
+    marriage_2015 = defaultdict(lambda: 0)
+    
+    for row in df.itertuples():
+        if row[1] == 2000:
+            if row[2] <= 3:
+                marriage_2000[row[4]] += 1
+        if row[1] == 2015:
+            if row[2] <= 3:
+                marriage_2015[row[4]] += 1
+     
+    just_plot(list(marriage_2000.keys()), list(marriage_2000.values()))
+    just_plot(list(marriage_2015.keys()), list(marriage_2015.values()))
+    #print(dict(marriage_2000))
+    #print(dict(marriage_2015))
                  
 downloaded_file = download(data_csv)
 data_frame = csv_to_df(downloaded_file)
 
 #ex1(data_frame)
 #ex2(data_frame)
-ex3(data_frame)
+#ex3(data_frame)
+ex4(data_frame)
