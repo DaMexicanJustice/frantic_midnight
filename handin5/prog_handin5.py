@@ -216,9 +216,7 @@ def ex5(df):
     age_distribution = defaultdict(lambda: 0)
     
     for row in df.itertuples():
-        if row[2] >= 1 and row[2] <= 10:
-            age_distribution[row[3]] += 1
-        if row[2] == 99:
+        if row[2]:
             age_distribution[row[3]] += 1
             
     plot_5(list(age_distribution.keys()), list(age_distribution.values()))
