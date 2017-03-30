@@ -200,6 +200,29 @@ def ex4(df):
     just_plot(list(marriage_2015.keys()), list(marriage_2015.values()))
     #print(dict(marriage_2000))
     #print(dict(marriage_2015))
+    
+def plot_5(age_distK, age_distV):
+    plt.bar(age_distK, age_distV, width=0.5, linewidth=0, align='center')
+    plt.ticklabel_format(useOffset=False)
+    plt.axis([0, max(age_distK) + 10, 0, 2600])
+    title = 'Distribution of {} peoples AGE in the CPH municipality'.format(sum(age_distV))
+    plt.title(title, fontsize=12)
+    plt.xlabel("Ages", fontsize=10)
+    plt.ylabel("Amount of people", fontsize=15)
+    plt.tick_params(axis='both', which='major', labelsize=15)
+    plt.show()
+    
+def ex5(df):
+    age_distribution = defaultdict(lambda: 0)
+    
+    for row in df.itertuples():
+        if row[2] >= 1 and row[2] <= 10:
+            age_distribution[row[3]] += 1
+        if row[2] == 99:
+            age_distribution[row[3]] += 1
+            
+    plot_5(list(age_distribution.keys()), list(age_distribution.values()))
+    #print(dict(age_distribution))
                  
 downloaded_file = download(data_csv)
 data_frame = csv_to_df(downloaded_file)
@@ -207,4 +230,5 @@ data_frame = csv_to_df(downloaded_file)
 #ex1(data_frame)
 #ex2(data_frame)
 #ex3(data_frame)
-ex4(data_frame)
+#ex4(data_frame)
+ex5(data_frame)
