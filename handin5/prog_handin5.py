@@ -227,6 +227,6 @@ data_frame = csv_to_df(downloaded_file)
 
 #ex1(data_frame)
 #ex2(data_frame)
-#ex3(data_frame)
+ex3(data_frame)
 #ex4(data_frame)
-ex5(data_frame)
+#ex5(data_frame)
