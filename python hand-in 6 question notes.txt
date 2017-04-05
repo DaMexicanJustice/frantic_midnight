@@ -1,0 +1,31 @@
+
+
+Question 1
+
+2 histograms
+length of movie and length of movie title on x-axis & the count on y-axis
+
+Question 2
+
+Any graph
+x-axis should be year and the y-axis the amount of movies released
+
+Question 3
+
+Scatterplot
+Identify clusters
+X-axis is year. Y-axis is movie length
+
+Question 4
+
+Apply MeanShift to question 3 to find clusters programmatically
+
+Question 5
+
+Apply a median line to question 3
+
+Question 6
+
+Same as question 3, but with genre included
+
+
