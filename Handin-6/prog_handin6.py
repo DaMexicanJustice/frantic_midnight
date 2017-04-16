@@ -105,6 +105,21 @@ def ex_three(data):
                 
     return movie_dict
 
+#---------------------------------------------
+# Eksempel på at lave opgave 3:
+# 
+# data = {1900: {'a':10, 'b':13, 'c':5}, 2000: {'d':120, 'e':90}}
+# print(data)
+# 
+# l = []
+# for year, sub_data in data.items():
+#     for title, length in sub_data.items():
+#         l.append((year,length))
+# 
+# list(zip(*l))[1]
+# print(l)
+#---------------------------------------------
+
 def ex_two(data):
     movie_dict = defaultdict(lambda:0)
     
