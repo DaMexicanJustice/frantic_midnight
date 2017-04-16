@@ -22,7 +22,77 @@ def bar_plot(keys, values):
     plt.bar(keys,values)
     plt.show()
     plt.savefig("movies_released_by_year.png")
+    
+def hist_plot1(K, V):
+    plt.bar(K, V, width=0.5, linewidth=0, align='center')
+    plt.ticklabel_format(useOffset=False)
+    plt.axis([0, max(K) + 10, 0, 1800])
+    title = 'Rating histogram'
+    plt.title(title, fontsize=20)
+    plt.xlabel("Rating", fontsize=20)
+    plt.ylabel("Rating Amount", fontsize=20)
+    plt.tick_params(axis='both', which='major', labelsize=15)
+    plt.savefig("Rating.jpg")
+    plt.show()
+    
+    
+def hist_plot2(K, V):
+    plt.bar(K, V, width=0.5, linewidth=0, align='center')
+    plt.ticklabel_format(useOffset=False)
+    plt.axis([0, max(K) + 10, 0, 1300])
+    title = 'Length histogram'
+    plt.title(title, fontsize=20)
+    plt.xlabel("Length", fontsize=20)
+    plt.ylabel("Length Amount", fontsize=20)
+    plt.tick_params(axis='both', which='major', labelsize=15)
+    plt.savefig("Length.jpg")
+    plt.show()
+    
+    
+def hist_plot3(K, V):
+    plt.bar(K, V, width=0.5, linewidth=0, align='center')
+    plt.ticklabel_format(useOffset=False)
+    plt.axis([0, max(K) + 10, 0, 1300]) #Giver valueError, max() arg is an empty sequence
+    title = 'Title length histogram'
+    plt.title(title, fontsize=20)
+    plt.xlabel("titles", fontsize=20)
+    plt.ylabel("Length", fontsize=20)
+    plt.tick_params(axis='both', which='major', labelsize=15)
+    plt.savefig("Length_of_title.png")
+    plt.show()
+    
 
+
+# Rating=5, Length=3, title=1    
+def ex_one(data):
+    rating_dict = defaultdict(lambda: 0)
+    length_dict = defaultdict(lambda: 0)
+    title_dict = defaultdict(lambda: 0)
+    
+    for row in data.itertuples():
+        rating = row[6]
+        length = row[4]
+        title = row[2]
+        year = row[3]
+        
+        if rating in rating_dict:
+            rating_dict[rating] += 1
+        else:
+            rating_dict[rating] = 1
+        
+        if length in length_dict:
+            length_dict[length] += 1
+        else:
+            length_dict[length] = 1
+            
+        if year in title_dict:
+            if title in title_dict:
+                title_dict[length] += 1 #Hvad gør jeg forkert?
+            
+    hist_plot1(list(rating_dict.keys()), list(rating_dict.values()))
+    hist_plot2(list(length_dict.keys()), list(length_dict.values()))
+    hist_plot3(list(title_dict.keys()), list(title_dict.values())) # :/
+    
 def ex_three(data):
     movie_dict = defaultdict(lambda: 0)
     
@@ -64,7 +134,8 @@ def get_sub_dict_values(d):
     
 file = download(url)
 data = csv_to_df(file)
-movie_dict = ex_two(data)
-d_keys = get_dict_keys(movie_dict)
-d_values = get_dict_values(movie_dict)
-bar_plot(d_keys, d_values)
+ex_one(data)
+#movie_dict = ex_two(data)
+#d_keys = get_dict_keys(movie_dict)
+#d_values = get_dict_values(movie_dict)
+#bar_plot(d_keys, d_values)
