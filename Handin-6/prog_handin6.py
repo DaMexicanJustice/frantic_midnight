@@ -4,6 +4,7 @@ import webget
 from collections import defaultdict
 from urllib.parse import urlparse
 import os
+import statistics
 
 url = "http://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/movies.csv"
 
@@ -92,33 +93,43 @@ def ex_one(data):
     hist_plot1(list(rating_dict.keys()), list(rating_dict.values()))
     hist_plot2(list(length_dict.keys()), list(length_dict.values()))
     hist_plot3(list(title_dict.keys()), list(title_dict.values())) # :/
-    
-def ex_three(data):
-    movie_dict = defaultdict(lambda: 0)
-    
-    for row in data.itertuples():
-            if row[3] in movie_dict.keys():
-                # THIS IS HOW IT'S DONE! :D :D :D :D :D !!!!! :D ;))
-                movie_dict[row[3]][row[2]] = row[4]
-            else:
-                movie_dict[row[3]] = {row[2] : row[4]}
-                
-    return movie_dict
 
-#---------------------------------------------
-# Eksempel på at lave opgave 3:
-# 
-# data = {1900: {'a':10, 'b':13, 'c':5}, 2000: {'d':120, 'e':90}}
-# print(data)
-# 
-# l = []
-# for year, sub_data in data.items():
-#     for title, length in sub_data.items():
-#         l.append((year,length))
-# 
-# list(zip(*l))[1]
-# print(l)
-#---------------------------------------------
+
+
+def make_scatterplot(keys_list, values_list, title="Untitled"):
+    plt.scatter(keys_list, values_list, c=values_list)
+    plt.title(title)
+    plt.savefig("nr3.png")
+
+def make_scatterplot_with_median(keys_list, values_list, title="Untitled"):
+    plt.scatter(keys_list, values_list, c=values_list)
+    plt.title(title)
+
+    med = statistics.median(values_list)
+    plt.axhline(y = med, color = 'r', label = ("median is " + str(med)))
+    plt.legend()
+
+    plt.savefig("nr5.png")
+
+def ex_three(data):
+    years = []
+    lengths = []
+
+    for row in data.itertuples():
+        years.append(row[3])
+        lengths.append(row[4])
+    make_scatterplot(years, lengths)
+
+def ex_five(data):
+    years = []
+    lengths = []
+
+    for row in data.itertuples():
+        years.append(row[3])
+        lengths.append(row[4])
+    
+    make_scatterplot_with_median(years, lengths)
+
 
 def ex_two(data):
     movie_dict = defaultdict(lambda:0)
@@ -149,7 +160,8 @@ def get_sub_dict_values(d):
     
 file = download(url)
 data = csv_to_df(file)
-ex_one(data)
+#ex_one(data)
+ex_five(data)
 #movie_dict = ex_two(data)
 #d_keys = get_dict_keys(movie_dict)
 #d_values = get_dict_values(movie_dict)
