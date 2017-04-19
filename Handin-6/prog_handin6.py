@@ -99,6 +99,10 @@ def ex_one(data):
 def make_scatterplot(keys_list, values_list, title="Untitled"):
     plt.scatter(keys_list, values_list, c=values_list)
     plt.title(title)
+<<<<<<< HEAD
+    plt.ylim(0, 300)
+=======
+>>>>>>> a5c1bf85aca41feed2dcddb85023facc96bbb7a6
     plt.savefig("nr3.png")
 
 def make_scatterplot_with_median(keys_list, values_list, title="Untitled"):
@@ -107,6 +111,10 @@ def make_scatterplot_with_median(keys_list, values_list, title="Untitled"):
 
     med = statistics.median(values_list)
     plt.axhline(y = med, color = 'r', label = ("median is " + str(med)))
+<<<<<<< HEAD
+    plt.ylim(0, 300)
+=======
+>>>>>>> a5c1bf85aca41feed2dcddb85023facc96bbb7a6
     plt.legend()
 
     plt.savefig("nr5.png")
