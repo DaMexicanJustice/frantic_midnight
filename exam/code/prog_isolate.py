@@ -16,11 +16,8 @@ def create_plot(image, title="untitled"):
 	plt.axis("off")
 	plt.savefig("hello.png")
 
-def create_ball_mask(image):
-	green_lower = (20,50,50)
-	green_upper = (100,255,255)
-	#green_lower = (20,100,180)
-	#green_upper = (60,255,255)
+def create_mask(image, green_lower, green_upper):
+
 	hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
 	mask = cv2.inRange(hsv, green_lower, green_upper)
 	mask = cv2.erode(mask, None, iterations=2)
@@ -52,9 +49,14 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
-	image_path = "legogame.jpg"
+	image_path = "biggamehunter.jpg"
 	img = read(image_path)
-	gray = create_ball_mask(img)
+	
+	lowerred = np.uint8((20,30,160))
+	uperred = np.uint((50,50,240))
+	
+	
+	gray = create_mask(img, cv2.cvtColor(lowerred, cv2.COLOR_RGB2HSV), cv2.cvtColor(uperred, cv2.COLOR_BGR2RGB))
 
 	the_contours = find_contours(gray, 50)
 	idx = 0
