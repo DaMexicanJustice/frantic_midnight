@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from time import sleep
 import numpy as np
 import sys
-from prog_isolate import read, create_mask, find_contours
+from prog_isolate import read, create_mask, create_mask_rgb, find_contours
 from prog_compare import compare
 import os
 
@@ -26,21 +26,69 @@ def compare_against(source_crop, platform):
 	comparables = [f for f in os.listdir(platform) if os.path.isfile(os.path.join(platform, f))]
 	
 	res = []
+
+	smallest_name = "unknown"
+	smallest_value = 99999
 	
-	reference = cv2.imread("./realxbox/crop46.jpg")
+	__test_diff__ = compare(
+		source_crop,
+		cv2.imread(
+			platform + "/" + comparables[0]
+		)
+	)
 	
-	smallest = {"name": "Unknown", "value": 1000000}
+	if(__test_diff__ > 10000):
+		print("probably shit")
+		return (smallest_name, smallest_value)
+
+	for item in comparables:	
+		diff = compare(
+			source_crop,
+			cv2.imread(
+				platform + "/" + item
+			)
+		)
+		#print("diff is " + str(diff))
+		if(diff < smallest_value):
+			smallest_value = diff
+			smallest_name = item
+
+	return (smallest_name, smallest_value)
 	
-	for item in comparables:
-		diff = compare(source_crop, cv2.imread(platform + "/" + item))
+
+def try_detect(image_file, lower, upper, path, masktype, erode=0, dilate=0):
+	platform_mask = masktype(image_file, lower, upper, erode, dilate)
+	platform_contours = find_contours(platform_mask, 50) # prev was 1
+	platform_best_match = ("Unknown", 99999)
+	
+	idx = 0
+	
+	verygoodfit = 1000
+	
+	for item in platform_contours:
+		idx += 1
 		
-		if(diff < smallest["value"]):
-			smallest["name"] = item
-			smallest["value"] = diff
+		print(str(idx) + "/" + str(len(platform_contours)))
+		my_crop = get_crop(item, image_file)
+		tmpres = compare_against(my_crop, path )
+		#print(tmpres)
+		if(tmpres[1] < platform_best_match[1]):
+			platform_best_match = (tmpres[0], tmpres[1])
+		if tmpres[1] < verygoodfit:
+			print("Broke because very good fit")
+			break
 	
-	#print("----")
-	#print(smallest)
-	return smallest
+	
+	return platform_best_match
+
+def print_best_fit(data, platform):
+	if(data[1] <= 1000):
+		print(platform)
+		print(data)
+		exit()
+	else:
+		print("Checked for " + platform)
+		print(data)
 
 if __name__ == "__main__":
 	args = sys.argv
@@ -48,35 +96,9 @@ if __name__ == "__main__":
 	if(len(args) < 2):
 		print("error")
 		exit()
+		
 	
 	image_file = cv2.imread(args[1])
 	
-	xbox_mask = create_mask(image_file, (20,50,50), (100,255,255)) # TODO: Tweak values
-	xbox_contours = find_contours(xbox_mask, 1)
-	
-	xbox_matches = []
-	
-	xbox_smallest_val = 99999999
-	
-	for item in xbox_contours:
-		print("compare a contour")
-		my_crop = get_crop(item, image_file)
-		#printimage(my_crop)
-		
-		#print(compare_against(my_crop, "./realxbox"))
-		tmpres = compare_against(my_crop, "./realxbox" )
-		
-		xbox_matches.append(tmpres)
-		#xbox_matches.append(
-		#	compare_against(my_crop, "realxbox")
-		#)
-		#print(xbox_matches)
-	
-	#print(xbox_matches)
-	for x in xbox_matches:
-		if x["value"] < xbox_smallest_val:
-			xbox_smallest_val = x["value"]
-	#print(xbox_smallest_val)
-	for x in xbox_matches:
-		if x["value"] == xbox_smallest_val:
-			print(x)
+	print_best_fit(try_detect(image_file, (20,50,50), (100,255,255), "./realxbox", create_mask, 2, 2), "xbox")
+	print_best_fit(try_detect(image_file, (200,200,200), (255,255,255), "./realps", create_mask_rgb, 0, 2), "ps4")
