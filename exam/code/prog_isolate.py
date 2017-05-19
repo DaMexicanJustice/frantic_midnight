@@ -16,18 +16,18 @@ def create_plot(image, title="untitled"):
 	plt.axis("off")
 	plt.savefig("hello.png")
 
-def create_mask_rgb(image, lower, upper, erode_iterator=0, dilate_iterator=0):
+def create_mask_rgb(image, green_lower, green_upper):
 	nothsv = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-	mask = cv2.inRange(nothsv, lower, upper)
-	mask = cv2.erode(mask, None, iterations=erode_iterator)
-	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
+	mask = cv2.inRange(nothsv, green_lower, green_upper)
+	#mask = cv2.erode(mask, None, iterations=2)
+	#mask = cv2.dilate(mask, None, iterations=2)
 	return mask
 	
-def create_mask(image, lower, upper, erode_iterator=0, dilate_iterator=0):
+def create_mask(image, green_lower, green_upper):
 	hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-	mask = cv2.inRange(hsv, lower, upper)
-	mask = cv2.erode(mask, None, iterations=erode_iterator)
-	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
+	mask = cv2.inRange(hsv, green_lower, green_upper)
+	mask = cv2.erode(mask, None, iterations=2)
+	mask = cv2.dilate(mask, None, iterations=2)
 	return mask
 
 def waitcv():
@@ -55,26 +55,30 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
-	image_path = "pokemonpearl.jpg"
+	image_path = "breathbad.jpg"
 	img = read(image_path) # reads and converts BGR -> RGB
 	
-	# For PS4
-	#white_lower = (200,200,200)
-	#white_upper = (255,255,255)
-	#w_mask = create_mask_rgb(img, blue_lower, blue_upper)
+	# til ps4
+	#green_lower = (250,250,250)
+	#green_upper = (255,255,255)
+	#my_mask = create_mask_rgb(img, green_lower, green_upper)
 	
-	# For XBOX360
-	#g_mask = create_mask(img, (30,50,50), (70,255,255
+	# til xbox
+	#my_mask = create_mask(img, (30,50,50), (70,255,255))
 	
-	# For DS
-	b_mask = create_mask_rgb(img, (0,0,0), (40,40,40))
+	# to Switch
+	#red_lower = (0,0,106);
+	#red_upper = (50,0,255);
+	#red_lower2 = (0,0,106);
+	#red_upper2 = (50,55,255);
+	#my_mask = create_mask_rgb(img, red_lower2, red_upper2)
 	
-	#Assign desired mask to this variable to be used as the reference going forward
-	mask = b_mask
+	#my_mask = create_mask(img, (353.42,353.42,92.94),(334,90,70))
 	
-	cv2.imwrite("test.jpg", mask)
+	
+	cv2.imwrite("test.jpg", my_mask)
 
-	the_contours = find_contours(mask, 50)
+	the_contours = find_contours(my_mask, 50)
 
 	idx = 0
 	for item in the_contours:
