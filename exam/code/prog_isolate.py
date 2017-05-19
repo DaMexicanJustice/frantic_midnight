@@ -16,18 +16,18 @@ def create_plot(image, title="untitled"):
 	plt.axis("off")
 	plt.savefig("hello.png")
 
-def create_mask_rgb(image, green_lower, green_upper):
+def create_mask_rgb(image, lower, upper, erode_iterator=0, dilate_iterator=0):
 	nothsv = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-	mask = cv2.inRange(nothsv, green_lower, green_upper)
-	#mask = cv2.erode(mask, None, iterations=2)
-	#mask = cv2.dilate(mask, None, iterations=2)
+	mask = cv2.inRange(nothsv, lower, upper)
+	mask = cv2.erode(mask, None, iterations=erode_iterator)
+	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
 	return mask
 	
-def create_mask(image, green_lower, green_upper):
+def create_mask(image, lower, upper, erode_iterator=0, dilate_iterator=0):
 	hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-	mask = cv2.inRange(hsv, green_lower, green_upper)
-	mask = cv2.erode(mask, None, iterations=2)
-	mask = cv2.dilate(mask, None, iterations=2)
+	mask = cv2.inRange(hsv, lower, upper)
+	mask = cv2.erode(mask, None, iterations=erode_iterator)
+	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
 	return mask
 
 def waitcv():
@@ -55,20 +55,26 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
-	image_path = "blackops.jpg"
+	image_path = "pokemonpearl.jpg"
 	img = read(image_path) # reads and converts BGR -> RGB
 	
-	# til ps4
-	#green_lower = (200,200,200)
-	#green_upper = (255,255,255)
-	#gray = create_mask_rgb(img, green_lower, green_upper)
+	# For PS4
+	#white_lower = (200,200,200)
+	#white_upper = (255,255,255)
+	#w_mask = create_mask_rgb(img, blue_lower, blue_upper)
 	
-	# til xbox
-	gray = create_mask(img, (30,50,50), (70,255,255))
+	# For XBOX360
+	#g_mask = create_mask(img, (30,50,50), (70,255,255
 	
-	cv2.imwrite("test.jpg", gray)
+	# For DS
+	b_mask = create_mask_rgb(img, (0,0,0), (40,40,40))
+	
+	#Assign desired mask to this variable to be used as the reference going forward
+	mask = b_mask
+	
+	cv2.imwrite("test.jpg", mask)
 
-	the_contours = find_contours(gray, 50)
+	the_contours = find_contours(mask, 50)
 
 	idx = 0
 	for item in the_contours:
