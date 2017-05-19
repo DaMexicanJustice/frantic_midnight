@@ -16,14 +16,8 @@ def create_plot(image, title="untitled"):
 	plt.axis("off")
 	plt.savefig("hello.png")
 
-def create_mask_rgb(image, green_lower, green_upper):
-	nothsv = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-	mask = cv2.inRange(nothsv, green_lower, green_upper)
-	#mask = cv2.erode(mask, None, iterations=2)
-	#mask = cv2.dilate(mask, None, iterations=2)
-	return mask
-	
 def create_mask(image, green_lower, green_upper):
+
 	hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
 	mask = cv2.inRange(hsv, green_lower, green_upper)
 	mask = cv2.erode(mask, None, iterations=2)
@@ -55,21 +49,15 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
-	image_path = "blackops.jpg"
-	img = read(image_path) # reads and converts BGR -> RGB
+	image_path = "colors-originals.jpg"
+	img = read(image_path)
 	
-	# til ps4
-	#green_lower = (200,200,200)
-	#green_upper = (255,255,255)
-	#gray = create_mask_rgb(img, green_lower, green_upper)
+	lowerred = np.uint8((20,3
 	
-	# til xbox
-	gray = create_mask(img, (30,50,50), (70,255,255))
 	
-	cv2.imwrite("test.jpg", gray)
+	gray = create_mask(img, cv2.cvtColor(lowerred, cv2.COLOR_RGB2HSV), cv2.cvtColor(uperred, cv2.COLOR_BGR2RGB))
 
 	the_contours = find_contours(gray, 50)
-
 	idx = 0
 	for item in the_contours:
 		idx += 1
