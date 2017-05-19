@@ -71,6 +71,9 @@ if __name__ == "__main__":
 	
 	# For GameCube
 	p_mask = create_mask_rgb( img, (45,45,100), (211,211,224), 0, 2)
+    
+    # For WiiU
+	u_mask = create_mask_rgb(img, (180,180,180), (255,255,255))
 	
 	#Assign desired mask to this variable to be used as the reference going forward
 	mask = p_mask
