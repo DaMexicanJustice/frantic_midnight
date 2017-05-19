@@ -55,7 +55,11 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	image_path = "breathbad.jpg"
+=======
+	image_path = "mariogolf.jpg"
+>>>>>>> ac6a9d75f48aed08e35c063b4a5f1d0e52428af5
 	img = read(image_path) # reads and converts BGR -> RGB
 	
 	# til ps4
@@ -63,6 +67,7 @@ if __name__ == "__main__":
 	#green_upper = (255,255,255)
 	#my_mask = create_mask_rgb(img, green_lower, green_upper)
 	
+<<<<<<< HEAD
 	# til xbox
 	#my_mask = create_mask(img, (30,50,50), (70,255,255))
 	
@@ -74,6 +79,22 @@ if __name__ == "__main__":
 	#my_mask = create_mask_rgb(img, red_lower2, red_upper2)
 	
 	#my_mask = create_mask(img, (353.42,353.42,92.94),(334,90,70))
+=======
+	# For XBOX360
+	#g_mask = create_mask(img, (30,50,50), (70,255,255), 2, 2)
+	
+	# For DS
+	#b_mask = create_mask_rgb(img, (0,0,0), (40,40,40), 0, 3)
+	
+	# For GameCube
+	p_mask = create_mask_rgb( img, (45,45,100), (211,211,224), 0, 2)
+    
+    # For WiiU
+	u_mask = create_mask_rgb(img, (180,180,180), (255,255,255))
+	
+	#Assign desired mask to this variable to be used as the reference going forward
+	mask = p_mask
+>>>>>>> ac6a9d75f48aed08e35c063b4a5f1d0e52428af5
 	
 	
 	cv2.imwrite("test.jpg", my_mask)
