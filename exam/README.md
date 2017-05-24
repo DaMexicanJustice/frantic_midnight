@@ -134,7 +134,7 @@ if you run `python prog_main.py blackops.jpg` you should get the following resul
 
 The output should look like the following screenshot:
 
-![image](./screenshot1.png)
+![image](./screenshot1.PNG)
 
 You may not have a graph show by itself (which is a bug for whatever reason), instead you can locate a file in the same directory as the program called testbarchart.png. It should look something like this:
 
