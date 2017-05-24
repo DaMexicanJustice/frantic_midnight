@@ -23,26 +23,12 @@ def create_mask(image, lower, upper, erode_iterator=0, dilate_iterator=0):
 	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
 	return mask
 
-def waitcv():
-	while True:
-		if cv2.waitKey(5) == 27:
-			break
-	cv2.destroyAllWindows()
-
-def mark_object(image, mask):
-	contours = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
-	c = max(contours, key=cv2.contourArea)
-	((x, y), radius) = cv2.boundingRect(c)
-	cv2.circle(image, (int(x), int(y)), int(radius), (255, 0, 0), 5)
-	return image
-
 def find_contours(frame, area):
 	arr = []
 	cnts = cv2.findContours(frame.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]
 	for c in cnts:
 		if cv2.contourArea(c) >= area:
 			(x,y,w,h) = cv2.boundingRect(c)
-			#print(str(x) + ":" + str(w) + ":" + str(y) + ":" + str(h))
 			arr.append((x,y,w,h))
 			
 	return arr
