@@ -119,12 +119,12 @@ The above example compares two images and tells you how more they resemble one a
 
 First off, we need some sort of reference image, so that we can compare our subject with the actual logoes. To do that, we need to find a way to isolate parts of the image that are unique to the specific platforms. Therefore, it would be obvious to target the respective platform logos (i.e. xbox 360, playstation 4, Wii U etc.). Firstly we need the image, from which we want to extract the unqiue identifier. We call a read function and store it in the program. We create a mask for the image based on color criterias, which we then find all the contours of a certain size, from which we can create our images. At last we hand pick a couple of reference images, some very clear and others a little slurred - which we store locally, so that they are ready for the main part of the program.
 
-**To make your own.** Simply find game images by using a search engine for example [google](http://www.google.com). Then save that image to the same directory as the programs and run prog_isolate.py <your imagefile>. This will generate a number of blobs. Go through them, spot the blob that contains the game logo and add that logo to the corresponding folder. See  [TurtleVG program](#TurtleVG) for which platforms are supported already.
+**To make your own.** Simply find game images by using a search engine for example [google](http://www.google.com). Then save that image to the same directory as the programs and run prog_isolate.py <your imagefile>. This will generate a number of blobs. Go through them, spot the blob that contains the game logo and add that logo to the corresponding folder. See  [TurtleVG program](#TurtleVG-program) for which platforms are supported already.
 
 ## How To Compare 2 Images [prog_compare.py](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/exam/code/prog_compare.py)
 
 Our program for comparison of images has 2 approaches, our initial solution labelled "old_compare" and our other solution "new_compare". Both solutions use a tolerance variable, which determines how much the color may vary from the original. We find the eucledian distance for every pixel in our 50x50 array between the first and the second image.   
-[See Conceptual Solution](## Conceptual Solution). For an example of how to compare two images see [example](####Example)
+[See Conceptual Solution](## Conceptual Solution). For an example of how to compare two images see [example](#Example)
 
 ## Putting Everything Together [prog_main.py](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/exam/code/)
 You are now ready to start making TurtleVG guess which platform your game belongs to. Bear in mind that we have no handling of games that are on a platform we do not cover. In other words it will give you a wrong guess. 
