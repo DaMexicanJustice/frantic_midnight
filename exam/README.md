@@ -1,3 +1,7 @@
+# Credits
+A project by Frantic Midnight.
+Patrick Johansen, Michael Veilis, Lasse Hansen, Martin Hansen
+
 # Installation Guide:
 
 ## Setup
