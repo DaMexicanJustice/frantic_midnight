@@ -49,7 +49,7 @@ ctrl + c and then Y and enter. Alternatively run a second terminal and vagrant s
 
 You are now ready to implement the code below.
 
-![image](logo.png)
+![image](./logo.png)
 
 # TurtleVG program
 We have chosen to name our solution TurtleVG. VG stands for videogame and that is the topic of the day. We have prepared a Python program that can recognize a selection of videogame platforms:
@@ -80,14 +80,14 @@ The greater the distance the lesser the similarity between images 'A' & 'B'. Thi
 
 ### Number Of Comparisons
 We have a number of blobs that corresponds to every segment of the image you input that passes the criteria we define in a mask. The mask consists of color ranges for the RGB-channel as well as a size (50x50). We try to find blobs that fulfill this criteria. They are then compared as so:
-![image](o-notation.png)
+![image](./o-notation.png)
 So that every image blob we found is compared against every logo we have for every platform. Our variables are therefore:
 1. Imageblobs created by mask (the contours found)
 2. Number of logos to compare against (the accuracy vs. speed)
 3. Platforms (the more platforms we have to guess, the slower the speed)
 
 #### Visualizaton
-![image](solution_visualization.png)
+![image](./solution_visualization.png)
 
 #### Improving Speed
 Tweak any of the 3 variables we have defined in whatever possible to change the speed. Bear in mind that we may lose accuracy by doing so. We have 2 methods, one that is faster (less comparisons) and one that is slower (more comparisons). Sometimes TurtleVG makes a wrong guess using the faster version. It all depends on the quality of the image you provide and the quality of the implementation.
@@ -134,11 +134,11 @@ if you run `python prog_main.py blackops.jpg` you should get the following resul
 
 The output should look like the following screenshot:
 
-![image](screenshot1.png)
+![image](./screenshot1.png)
 
 You may not have a graph show by itself (which is a bug for whatever reason), instead you can locate a file in the same directory as the program called testbarchart.png. It should look something like this:
 
-![image](TestBarChart.png)
+![image](./TestBarChart.png)
 
 ## Interesting 
 
