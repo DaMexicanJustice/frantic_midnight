@@ -1,7 +1,5 @@
 import cv2
 import sys
-from time import sleep
-import numpy as np
 
 def read(path, switch_channels=True):
 	image = cv2.imread(path)
@@ -32,7 +30,6 @@ def find_contours(frame, area):
 			arr.append((x,y,w,h))
 			
 	return arr
-
 
 if __name__ == "__main__":
 	args = sys.argv

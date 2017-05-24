@@ -1,8 +1,6 @@
 import cv2
 import sys
-import os
 import math
-import numpy as np
 from itertools import product
 
 tolerance = 32

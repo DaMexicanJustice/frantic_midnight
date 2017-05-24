@@ -45,7 +45,7 @@ def new_compare(firstpic, secondpic):
 	print("New compare says " + str(new_compare(a,b)))
 	
 	
-	
+prog_isolate:
 It's because the opencv is stupid and hides images immediately, so this trick keeps showing the picture until ESC is pressed.
 	
 	def waitcv():
@@ -55,7 +55,7 @@ It's because the opencv is stupid and hides images immediately, so this trick ke
 	cv2.destroyAllWindows()
 
 	
-	
+prog_isolate
 This Method was used to test how to clip out a circluar object from a picture, to see how it can be used.
 We used another method for that now which is "find_contours".
 
@@ -70,7 +70,7 @@ def mark_object(image, mask):
 	
 	
 	
-	
+prog_main:
 the __test_diff__ was to just sample against the first picture in the subdir and skip entirely if the result is off the hook
 but it had disappointing results with one of the pictures, so we cancelled it.
 	
