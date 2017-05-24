@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 	
-def plot_results_bar(src):
+def plot_results_bar(src, title):
 	plt.bar(range(len(src)), src.values(), align='center')
 	plt.xticks(range(len(src)), list(src.keys()))
 	
 	lowestval = min(src, key=src.get)
 	
-	plt.title("TurtleVG guesses it is a game on: " +lowestval)
+	plt.title("TurtleVG guesses " + title + " is a game on: " +lowestval)
 	plt.xlabel('Console')
 	plt.ylabel('Deviation from best fit')
 	plt.show()
@@ -21,5 +21,3 @@ def prepare_for_plotting(results):
 		res[key] = value
 	
 	return res
-	
-

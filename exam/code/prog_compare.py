@@ -47,7 +47,7 @@ def newcompare(firstpic, secondpic):
 	return dist
 
 def compare(firstpic, secondpic):
-	return oldcompare(
+	return newcompare(
 		firstpic,
 		secondpic
 	)	

@@ -30,20 +30,19 @@ def compare_against_v2(source_crop, platform):
 	
 	res = []
 	
-	boundary = 10000
-
-	smallest_name = "unknown"
-	smallest_value = 99999
+	#boundary = 10000
 	
-	__test_diff__ = compare(
-		source_crop,
-		cv2.imread(
-			platform + "/" + comparables[0]
-		)
-	)
+	smallest = ("unknown", 99999)
 	
-	if(__test_diff__ > boundary):
-		return (smallest_name, smallest_value)
+	#__test_diff__ = compare(
+	#	source_crop,
+	#	cv2.imread(
+	#		platform + "/" + comparables[0]
+	#	)
+	#)
+	
+	#if(__test_diff__ > boundary):
+	#	return smallest
 
 	for item in comparables:	
 		diff = compare(
@@ -52,11 +51,10 @@ def compare_against_v2(source_crop, platform):
 				platform + "/" + item
 			)
 		)
-		if(diff < smallest_value):
-			smallest_value = diff
-			smallest_name = item
+		if(diff < smallest[1]):
+			smallest = (item, diff)
 
-	return (smallest_name, smallest_value)
+	return smallest
 
 def compare_against(source_crop, platform):
 	comparables = [f for f in os.listdir(platform) if os.path.isfile(os.path.join(platform, f))]
@@ -83,7 +81,7 @@ def try_detect(image_file, lower, upper, path, masktype, erode=0, dilate=0):
 	platform_best_match = ("Unknown", 99999)
 	
 	#idx = 0
-	verygoodfit = 1000
+	verygoodfit = 100
 	
 	for item in platform_contours:
 		#idx += 1
@@ -120,4 +118,4 @@ if __name__ == "__main__":
 	results["Nintendo GCN"] = try_detect( image_file, (45,45,100), (211,211,224), "./realgc", create_mask_rgb, 0, 2 )[1]
 	results["Nintendo DS"] = try_detect( image_file, (0,0,0), (40,40,40), "./realds", create_mask_rgb, 0, 3 )[1]
 	results["Nintendo Wii U"] = try_detect( image_file, (180,180,180), (255,255,255), "./realwiiu", create_mask_rgb)[1]
-	plot_results_bar( prepare_for_plotting(results) )
+	plot_results_bar( prepare_for_plotting(results), args[1] )

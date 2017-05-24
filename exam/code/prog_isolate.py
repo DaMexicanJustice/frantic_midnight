@@ -1,5 +1,5 @@
 import cv2
-import matplotlib.pyplot as plt
+import sys
 from time import sleep
 import numpy as np
 
@@ -8,13 +8,6 @@ def read(path, switch_channels=True):
 	if switch_channels:
 		image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 	return image
-
-def create_plot(image, title="untitled"):
-	#cv2.imshow("Sample", image)
-	plt.imread(image)
-	plt.title(title)
-	plt.axis("off")
-	plt.savefig("hello.png")
 
 def create_mask_rgb(image, lower, upper, erode_iterator=0, dilate_iterator=0):
 	nothsv = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -56,7 +49,13 @@ def find_contours(frame, area):
 
 
 if __name__ == "__main__":
-	image_path = "persona5.jpg"
+	args = sys.argv
+	
+	if(len(args) < 2):
+		print("Usage: python " + args[0] + "(file)")
+		exit()
+
+	image_path = args[1]
 	img = read(image_path) # reads and converts BGR -> RGB
 	
 	# For PS4
