@@ -104,7 +104,7 @@ The final project can be found at our public Github repository [Frantic Midnight
 
 The usable terminal commands are:
 
-`python prog_main.py <imagefile>`
+`python turtlevg.py <imagefile>`
 
 `python prog_isolate.py <imagefile>`
 
@@ -126,13 +126,13 @@ First off, we need some sort of reference image, so that we can compare our subj
 Our program for comparison of images has 2 approaches, our initial solution labelled "old_compare" and our other solution "new_compare". Both solutions use a tolerance variable, which determines how much the color may vary from the original. We find the eucledian distance for every pixel in our 50x50 array between the first and the second image.   
 [See Conceptual Solution](## Conceptual Solution). For an example of how to compare two images see [example](#Example)
 
-## Putting Everything Together [prog_main.py](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/exam/code/)
+## Putting Everything Together [turtlevg.py](https://github.com/DaMexicanJustice/frantic_midnight/blob/master/exam/code/)
 You are now ready to start making TurtleVG guess which platform your game belongs to. Bear in mind that we have no handling of games that are on a platform we do not cover. In other words it will give you a wrong guess. 
 To start using TurtleVG simply use it like so:
 
-`python prog_main.py <image file>`
+`python turtlevg.py <image file>`
 
-if you run `python prog_main.py blackops.jpg` you should get the following results:
+if you run `python turtlevg.py blackops.jpg` you should get the following results:
 
 The output should look like the following screenshot:
 
