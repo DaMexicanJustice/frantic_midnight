@@ -87,7 +87,7 @@ So that every image blob we found is compared against every logo we have for eve
 3. Platforms (the more platforms we have to guess, the slower the speed)
 
 #### Visualizaton
-![image](./solution_visualization.png)
+![image](./solution_visualization.PNG)
 
 #### Improving Speed
 Tweak any of the 3 variables we have defined in whatever possible to change the speed. Bear in mind that we may lose accuracy by doing so. We have 2 methods, one that is faster (less comparisons) and one that is slower (more comparisons). Sometimes TurtleVG makes a wrong guess using the faster version. It all depends on the quality of the image you provide and the quality of the implementation.
