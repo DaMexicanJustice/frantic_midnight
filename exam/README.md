@@ -98,11 +98,12 @@ The final project can be found at our public Github repository [Frantic Midnight
 
 ### How To Run
 
-**Make sure the image files you want to test are located in the same directory as the programs **
+**Make sure the image files you want to test are located in the same directory as the programs**
 
 **Make sure you type in the terminal: `workon course`**
 
 The usable terminal commands are:
+
 `python prog_main.py <imagefile>`
 
 `python prog_isolate.py <imagefile>`
