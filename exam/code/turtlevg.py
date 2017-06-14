@@ -72,6 +72,7 @@ if __name__ == "__main__":
 	
 	results = {}
 	print("Calculating...")
+	# try_detect returns a tuple. We want value at pos [1]
 	results["Xbox 360"] = try_detect(image_file, (20,50,50), (100,255,255), "./realxbox", create_mask, 2, 2)[1]
 	results["PS4"] = try_detect(image_file, (200,200,200), (255,255,255), "./realps", create_mask_rgb, 0, 2)[1]
 	results["Nintendo GCN"] = try_detect( image_file, (45,45,100), (211,211,224), "./realgc", create_mask_rgb, 0, 2 )[1]
