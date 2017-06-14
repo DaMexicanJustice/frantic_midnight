@@ -21,9 +21,9 @@ def create_mask(image, lower, upper, erode_iterator=0, dilate_iterator=0):
 	mask = cv2.dilate(mask, None, iterations=dilate_iterator)
 	return mask
 
-def find_contours(frame, area):
+def find_contours(kernel, area):
 	arr = []
-	cnts = cv2.findContours(frame.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]
+	cnts = cv2.findContours(kernel.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]
 	for c in cnts:
 		if cv2.contourArea(c) >= area:
 			(x,y,w,h) = cv2.boundingRect(c)
